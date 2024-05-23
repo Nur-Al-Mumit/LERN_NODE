@@ -17,8 +17,10 @@ const __dirname = path.dirname(__filename);
 // console.log(__filename);
 // console.log(__dirname);
 
-const server = http.createServer(async(req, res) => {
+const server = http.createServer(async (req, res) => {
     try {
+        // console.log(req.url);
+        // console.log(req.method);
         if (req.method === 'GET') {
             let filePath;
             if (req.url === '/') {
@@ -36,7 +38,10 @@ const server = http.createServer(async(req, res) => {
                 throw new Error("Page not found")
             }
 
-            const data = fs.readFile(filePath)
+            const data = await fs.readFile(filePath);
+            res.setHeader('Content-Type', 'text/html')
+            res.write(data);
+            res.end();
         } else {
             throw new Error('Method not Allowed');
         }
