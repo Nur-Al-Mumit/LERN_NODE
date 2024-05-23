@@ -1,0 +1,15 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "node_test",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon --env-file=.env server.js"
+  },
+  "author": "nuralmumit",
+  "license": "MIT",
+  "dependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
