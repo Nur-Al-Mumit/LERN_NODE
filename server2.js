@@ -61,9 +61,9 @@ const createStudent = (req, res) => {
         res.end();
     })
 
-    res.statusCode = 404;
-    res.write(JSON.stringify({ message: 'Route Not Found' }));
-    res.end();
+    // res.statusCode = 404;
+    // res.write(JSON.stringify({ message: 'Route Not Found test' }));
+    // res.end();
 }
 // Route handler for POST /api/create-student
 
@@ -83,9 +83,12 @@ const server = createServer((req, res) => {
             } else if (
                 req.url.match(/\/api\/student\/([0-9]+)/) &&
                 req.method === 'GET') {
+
                 getStudent(req, res);
+
             } else if (req.url === '/api/create-student' && req.method === 'POST') {
                 createStudent(req, res);
+                // getStudents(req, res);
             } else {
                 notFound(req, res);
             }
